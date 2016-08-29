@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="agecalc">
+<head>
+	<meta charset="UTF-8">
+	<title>AgeCalc</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/agecalc.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+</head>
+<body ng-controller="dataController as data">
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<a href="" class="navbar-brand">Age Calc</a>
+			</div>
+		</nav>	
+	</header>
+
+	<main class="container" id="main">
+		<div class="jumbotron">
+			<select class="form-control" ng-model="item" ng-options=" '['+item.lvl+']' + ' ' + item.nome for item in martelos"></select>
+
+			<div class="row item-imagem">
+				<div class="col-xs-4 col-lg-4 col-md-4 col-sm-4"></div>
+				<div class="col-xs-4 col-lg-4 col-md-4 col-sm-4">
+					<img ng-model="item.imagem" ng-src="{{item.imagem}}" class="img-item" alt="Selecione um item">
+				</div>
+				<div class="col-xs-4 col-lg-4 col-md-4 col-sm-4"></div>
+			</div>
+			
+			<div id="valores"  class="row">
+				<div class="form-group ">
+					<div class="col-xs-6">
+						<label for="">P. ATK MIN</label>
+						<input type="text" class="form-control" ng-model="min">
+					</div>
+					<div class="col-xs-6">
+						<label for="">P. ATK MAX</label>
+						<input type="text" class="form-control" ng-model="max">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+						<label for="">TAXA DE ATK</label>
+						<input type="text" class="form-control" ng-model="taxa">
+					</div>
+
+					<div class="col-xs-6">
+						<label for="">Aging</label>
+						<select name="" id="aging" class="form-control" ng-model="age">
+							<option value="{{n}}" ng-repeat="n in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">+{{ n }} </option>
+						</select>
+					</div>
+				</div>
+				<br>
+				<div class="actions container">
+					<button class="btn btn-sm btn-success " ng-click="preencher()">Perfeito</button>
+					<button class="btn btn-sm btn-primary " ng-click="calcular()">Calcular</button>
+				</div>
+			</div>
+			<br>
+			<div class="alert alert-info" ng-hide="resultado == null">
+				<p> {{ resultado }}</p>
+			</div>
+		</div>
+	</main>
+
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/semantic.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/agecalc.js"></script>
+</body>
+</html>	

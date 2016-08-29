@@ -1,0 +1,24 @@
+body{
+	background-image: url("../imagens/bg.jpg");
+	background-position: top;
+	height: 100%;
+	width: 100%;
+}
+
+.item-imagem{
+	margin-top: 20px;
+}
+
+.img-item{
+	height:80px;
+	margin-left:50%; 
+	margin-right:50%; 
+}
+
+#main{
+	margin-top: 50px;
+}
+
+#valores{
+	margin-top: 30px;
+}
